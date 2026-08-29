@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppProvider, useApp } from './context/AppContext';
+import { AppProvider, useApp } from './context/AppContext.tsx';
 import { Header } from './components/Header';
 import { BottomNav } from './components/BottomNav';
 import { DiscoverView } from './components/DiscoverView';
