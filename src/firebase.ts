@@ -23,6 +23,7 @@ try {
     localCache: persistentLocalCache({
       tabManager: persistentMultipleTabManager(),
     }),
+    ignoreUndefinedProperties: true,
   });
 } catch {
   firestoreDb = getFirestore(app);
