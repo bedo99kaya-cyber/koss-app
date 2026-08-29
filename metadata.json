@@ -1,0 +1,8 @@
+{
+  "name": "Koşş",
+  "description": "Her türlü etkinlik için insanları bir araya getiren, profilli ve puanlamalı sosyal etkinlik ve buluşma uygulaması.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
