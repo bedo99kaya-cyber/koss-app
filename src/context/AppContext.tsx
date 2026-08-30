@@ -175,6 +175,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // 1. Firebase Auth State Listener
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setAuthLoading(false); // Kilitlenmeyi önlemek icin hemen false yapıyoruz
       setAuthUser(user);
       if (user) {
         // Check if user exists in Firestore, if not create basic doc
@@ -211,7 +212,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       setAuthLoading(false);
     });
 
-    return () => unsubscribe();
+    const timeout = setTimeout(() => { setAuthLoading(false); }, 1500);
+    return () => { unsubscribe(); clearTimeout(timeout); };
   }, []);
 
   // Compute active user
@@ -416,11 +418,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setAuthError(null);
     try {
       await signInWithEmailAndPassword(auth, email, pass);
-      setAuthLoading(false);
-      triggerConfetti();
+      setTimeout(() => setAuthLoading(false), 100);
+      try { triggerConfetti(); } catch(e) {}
       return true;
     } catch (err: any) {
-      setAuthLoading(false);
+      setTimeout(() => setAuthLoading(false), 100);
       const msg = getTurkishAuthErrorMessage(err?.code || '');
       setAuthError(msg);
       return false;

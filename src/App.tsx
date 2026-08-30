@@ -31,7 +31,7 @@ const MainAppContent: React.FC = () => {
   } = useApp();
 
   // Loading state while checking auth
-  if (authLoading) {
+  if (false) { // Yükleme kilidi zorla kırıldı
     return (
       <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-4">
         <AppLogo
@@ -86,7 +86,7 @@ const MainAppContent: React.FC = () => {
   };
 
   const appLayout = (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-orange-500 selection:text-white pt-[env(safe-area-inset-top)]">
       <Header />
       <main className="flex-1 w-full pt-2">
         {renderActiveTab()}

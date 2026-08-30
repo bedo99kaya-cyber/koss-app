@@ -1,8 +1,15 @@
 <!doctype html>
 <html lang="tr">
   <head>
+    <script>
+  window.gapi = window.gapi || {
+    iframes: { getContext: () => ({}) },
+    load: (name, cb) => { if (typeof cb === "function") cb(); },
+    auth2: { init: () => Promise.resolve() }
+  };
+</script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Koşş" />
@@ -24,6 +31,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+  #root {
+    padding-top: env(safe-area-inset-top);
+  }
+</style>
   </head>
   <body class="bg-slate-900 text-slate-100 font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-orange-500 selection:text-white">
     <div id="root"></div>
